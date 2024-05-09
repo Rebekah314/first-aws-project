@@ -5,10 +5,9 @@ import org.launchcode.firstawsproject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -31,10 +30,25 @@ public class ProductController {
     }
 
     //get all products from database
+    @GetMapping("/products")
+    public List<Product> getProducts() {
+        return productService.getProducts();
+    }
 
     //update an existing product in database
+    @PatchMapping("/product")
+    public ResponseEntity<Product> updateProduct(@RequestParam(name = "productId") long productId,
+                                                 @RequestBody Product product) {
+        Product updatedProduct = productService.updateProduct(productId, product);
+        return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+    }
 
     //delete an existing product in database
+    @DeleteMapping("/product")
+    public ResponseEntity<Product> deleteProduct(@RequestParam(name="productId") long productId) {
+        Product deletedProduct = productService.deleteProduct(productId);
+        return new ResponseEntity<>(deletedProduct, HttpStatus.OK);
+    }
 
     //get product by name using raw SQL statement
 
