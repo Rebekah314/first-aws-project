@@ -8,8 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
-    @GetMapping("/health")
-    public ResponseEntity<?> health() {
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+
 }
