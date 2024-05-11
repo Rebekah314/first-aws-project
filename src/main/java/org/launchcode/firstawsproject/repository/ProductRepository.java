@@ -16,6 +16,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     //"?1" is the syntax for the first argument of this method
     //So thw query becomes:
-    //"Select everything from the product_inventory table where the
+    //"Select all columns from the product_inventory table where the
     //product_name is equal to the first argument of this method
 }
