@@ -51,5 +51,11 @@ public class ProductController {
     }
 
     //get product by name using raw SQL statement
+    @GetMapping("/products-by-name")
+    public List<Product> getProductsByName(@RequestParam(name="productName") String productName) {
+        return productService.getProductsByName(productName);
+    }
+
+
 
 }
