@@ -1,7 +1,6 @@
 package org.launchcode.firstawsproject.repository;
 
 import org.launchcode.firstawsproject.model.Product;
-import org.launchcode.firstawsproject.service.ProductService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
